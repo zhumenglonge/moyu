@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>俄罗斯方块 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🧱</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🧱 俄罗斯方块</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">得分<b id="score">0</b></div>
+      <div class="chip best">最高分<b id="best">0</b></div>
+      <div class="chip">等级<b id="level">1</b></div>
+      <div class="chip">行数<b id="lines">0</b></div>
+    </div>
+
+    <div class="board-wrap stage">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <canvas id="board" class="board" width="300" height="600"></canvas>
+        <div style="display:flex;flex-direction:column;gap:10px">
+          <div class="chip" style="min-width:110px">下一块<b><canvas id="next" width="100" height="70" style="display:block"></canvas></b></div>
+        </div>
+      </div>
+      <div class="overlay-mask" id="overlay">
+        <h2 id="ov-title">准备好了吗？</h2>
+        <p id="ov-text">↑ 旋转 · ↓ 加速 · 空格直落</p>
+        <button class="btn primary" id="ov-btn">开始游戏</button>
+      </div>
+    </div>
+
+    <div class="level-row">
+      <button class="btn" id="pause-btn">暂停 (P)</button>
+      <button class="btn" id="restart-btn">重新开始</button>
+    </div>
+
+    <p class="hint">
+      <kbd>←→</kbd> 移动 · <kbd>↑</kbd> / <kbd>X</kbd> 旋转 · <kbd>↓</kbd> 软降 · <kbd>空格</kbd> 硬降 · <kbd>P</kbd> 暂停<br>
+      消行越多分越高 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./tetris.js"></script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>贪吃蛇 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🐍</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🐍 贪吃蛇</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">得分<b id="score">0</b></div>
+      <div class="chip best">最高分<b id="best">0</b></div>
+      <div class="chip">长度<b id="len">3</b></div>
+    </div>
+
+    <div class="board-wrap stage">
+      <canvas id="board" class="board" width="440" height="440"></canvas>
+      <div class="overlay-mask" id="overlay">
+        <h2 id="ov-title">准备好了吗？</h2>
+        <p id="ov-text">方向键 / WASD 控制，别咬到自己</p>
+        <button class="btn primary" id="ov-btn">开始游戏</button>
+      </div>
+    </div>
+
+    <p class="hint">
+      <kbd>↑↓←→</kbd> / <kbd>WASD</kbd> 移动 · 手机可滑动屏幕<br>
+      撞墙或咬到自己就结束 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./snake.js"></script>
+</body>
+</html>

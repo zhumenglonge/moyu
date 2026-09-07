@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>推箱子 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>📦</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>📦 推箱子</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">关卡<b id="level">1</b></div>
+      <div class="chip">步数<b id="moves">0</b></div>
+      <div class="chip best">已过关<b id="solved">0</b></div>
+    </div>
+
+    <div class="board-wrap stage">
+      <div class="soko-board" id="board"></div>
+      <div class="overlay-mask" id="overlay" style="display:none">
+        <h2 id="ov-title">过关！</h2>
+        <p id="ov-text"></p>
+        <button class="btn primary" id="ov-btn">下一关</button>
+      </div>
+    </div>
+
+    <div class="level-row">
+      <button class="btn" id="prev">‹ 上一关</button>
+      <button class="btn" id="reset">重玩本关 (R)</button>
+      <button class="btn" id="undo">撤销 (Z)</button>
+      <button class="btn" id="next">下一关 ›</button>
+    </div>
+
+    <p class="hint">
+      <kbd>↑↓←→</kbd> / <kbd>WASD</kbd> 移动 · <kbd>Z</kbd> 撤销 · <kbd>R</kbd> 重玩<br>
+      把所有箱子 📦 推到目标点 ◇ 上 · 箱子只能推不能拉 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./sokoban.js"></script>
+</body>
+</html>

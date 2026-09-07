@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2048 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔢</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🔢 2048</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">得分<b id="score">0</b></div>
+      <div class="chip best">最高分<b id="best">0</b></div>
+      <button class="btn primary" id="new-game">新游戏</button>
+    </div>
+
+    <div class="board-wrap stage">
+      <div class="grid2048" id="grid"></div>
+      <div class="overlay-mask" id="overlay" style="display:none">
+        <h2 id="ov-title">游戏结束</h2>
+        <p id="ov-text"></p>
+        <button class="btn primary" id="ov-btn">再来一局</button>
+      </div>
+    </div>
+
+    <p class="hint">
+      <kbd>↑↓←→</kbd> / <kbd>WASD</kbd> 移动合并 · 手机可滑动屏幕<br>
+      拼出 <b>2048</b> 即胜利 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./game2048.js"></script>
+</body>
+</html>
