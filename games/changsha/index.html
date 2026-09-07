@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今天去哪玩 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🌶️</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page cs-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🌶️ 长沙：今天去哪玩</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">今日路线<b id="plan-name">—</b></div>
+      <div class="chip">主题<b id="plan-theme">—</b></div>
+    </div>
+
+    <div class="cs-actions">
+      <button class="btn primary" id="reroll" type="button">🎲 重新摇一条路线</button>
+      <button class="btn" id="copy" type="button">📋 复制路线</button>
+    </div>
+
+    <ol class="cs-route" id="route"></ol>
+
+    <p class="hint">
+      路线由本地随机拼装 · 出行前记得查营业时间和天气<br>
+      辣度因人而异，点单量力而行 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./changsha.js"></script>
+</body>
+</html>

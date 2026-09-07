@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>今日运势 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🔮</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🔮 今日运势</h1>
+    </div>
+
+    <div class="fortune-card">
+      <div class="fortune-date" id="date"></div>
+      <div class="fortune-count" id="count">第 1 签</div>
+
+      <div class="fortune-hex" aria-hidden="true">
+        <span class="tri" id="tri-up">☰</span>
+        <span class="tri" id="tri-down">☰</span>
+      </div>
+
+      <div class="fortune-gua">
+        <div class="gua-name" id="gua-name">乾为天</div>
+        <div class="gua-line" id="gua-line">天行健，君子以自强不息。</div>
+      </div>
+
+      <div class="fortune-divider"></div>
+
+      <p class="fortune-zh" id="zh"></p>
+      <p class="fortune-en" id="en"></p>
+
+      <button class="btn primary" id="redraw" type="button">🎲 再抽一签</button>
+    </div>
+
+    <p class="hint">
+      每天第一签由天注定，后面的全凭手气 · 卦仅供摸鱼参考<br>
+      谐音梗扣钱，但今天免单 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./fortune.js"></script>
+</body>
+</html>

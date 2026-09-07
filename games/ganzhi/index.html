@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>六十甲子 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🏮</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🏮 六十甲子</h1>
+      <button class="btn" id="cheat-toggle" type="button">📖 小抄</button>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">得分<b id="score">0</b></div>
+      <div class="chip">连对<b id="combo">0</b></div>
+      <div class="chip">进度<b id="progress">1/10</b></div>
+      <div class="chip best">纪录<b id="best">0</b></div>
+    </div>
+
+    <div class="gz-cheat" id="cheat" hidden>
+      <h3>📖 干支小抄</h3>
+      <p>天干看<strong>年份尾数</strong>，地支算 <strong>（年份 − 4）÷ 12 的余数</strong>，两个一对就是干支年。十年天干转一圈、十二生肖转一圈，<strong>六十年回到原点</strong>（所以叫六十甲子）。</p>
+      <div class="gz-row" id="cheat-stems"></div>
+      <div class="gz-row" id="cheat-branches"></div>
+      <div class="gz-row" id="cheat-zodiac"></div>
+      <p>例：2024 年 → 尾数 4 = 甲；(2024−4)÷12 余 4 = 辰 → <strong>甲辰龙年</strong>。1984 年 → 余 0 = 子 → <strong>甲子年</strong>，正是上一轮的起点。</p>
+    </div>
+
+    <div class="gz-card" id="quiz">
+      <div class="gz-mode-tag" id="mode-tag">年份 → 干支</div>
+      <div class="gz-question" id="question"></div>
+      <div class="gz-options" id="options"></div>
+      <div class="gz-feedback" id="feedback" hidden>
+        <div class="gz-verdict" id="verdict"></div>
+        <div class="gz-explain" id="explain"></div>
+      </div>
+      <button class="btn primary" id="next" type="button" hidden>下一题 →</button>
+    </div>
+
+    <div class="gz-card" id="result" hidden>
+      <div class="gz-mode-tag">本局结算</div>
+      <div class="gz-final" id="final-score">0</div>
+      <p class="gz-final-sub" id="final-sub"></p>
+      <p class="gz-final-msg" id="final-msg"></p>
+      <button class="btn primary" id="restart" type="button">🔄 再来一局</button>
+    </div>
+
+    <div class="mode-row" id="modes">
+      <button class="btn mode-btn active" data-mode="year" type="button">年份 → 干支</button>
+      <button class="btn mode-btn" data-mode="zodiac" type="button">地支 ↔ 生肖</button>
+      <button class="btn mode-btn" data-mode="order" type="button">顺序填空</button>
+      <button class="btn mode-btn" data-mode="mix" type="button">🎲 混合模式</button>
+    </div>
+
+    <p class="hint">
+      口诀：天干看尾数，地支减四除十二 · 4 甲 5 乙 6 丙 7 丁 8 戊 9 己 0 庚 1 辛 2 壬 3 癸<br>
+      可用键盘 <kbd>1</kbd>–<kbd>4</kbd> 作答，<kbd>Enter</kbd> 下一题 · 答错别慌，小抄随时翻 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./ganzhi.js"></script>
+</body>
+</html>

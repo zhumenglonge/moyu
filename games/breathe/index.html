@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>深呼吸 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🫁</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🫁 深呼吸</h1>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">模式<b id="mode-name">均衡 4-4-4-4</b></div>
+      <div class="chip best">已完成<b id="rounds">0</b>轮</div>
+      <div class="chip">今日累计<b id="total">0</b>轮</div>
+    </div>
+
+    <div class="mode-row">
+      <button class="btn mode-btn active" data-mode="box" type="button">均衡呼吸 4-4-4-4</button>
+      <button class="btn mode-btn" data-mode="relax" type="button">助眠呼吸 4-7-8</button>
+    </div>
+
+    <div class="breath-stage board-wrap">
+      <div class="breath-ring"></div>
+      <div class="breath-circle" id="circle">
+        <span class="ph" id="phase">准备好了吗？</span>
+        <b id="count">—</b>
+      </div>
+    </div>
+
+    <button class="btn primary" id="toggle" type="button">开始呼吸</button>
+
+    <p class="hint">
+      跟着圆圈：变大吸气 · 停住屏息 · 变小呼气<br>
+      建议一次 6 轮以上 · <kbd>ESC</kbd> 老板键（自动暂停）
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./breathe.js"></script>
+</body>
+</html>
