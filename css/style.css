@@ -1,0 +1,467 @@
+:root {
+  --bg: #0e1420;
+  --bg-soft: #161e2e;
+  --card: #1a2334;
+  --card-hover: #212d44;
+  --border: #2a3852;
+  --text: #e8edf6;
+  --text-dim: #8fa0bd;
+  --accent: #5b8cff;
+  --accent-2: #8f6bff;
+  --good: #3ddc97;
+  --warn: #ffb454;
+  --bad: #ff6b81;
+  --radius: 14px;
+  --mono: "SF Mono", "Cascadia Code", Consolas, "JetBrains Mono", monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+/* ===== 大厅 ===== */
+
+.lobby {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 48px 24px 64px;
+  width: 100%;
+  flex: 1;
+}
+
+.lobby header { text-align: center; margin-bottom: 40px; }
+
+.lobby .badge {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--text-dim);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 18px;
+}
+
+.lobby h1 {
+  font-size: 42px;
+  letter-spacing: 2px;
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lobby .subtitle { color: var(--text-dim); margin-top: 10px; font-size: 15px; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  color: var(--text);
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+}
+
+.game-card:hover {
+  background: var(--card-hover);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.game-card .icon {
+  font-size: 40px;
+  width: 68px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-soft);
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.game-card .info h2 { font-size: 19px; margin-bottom: 6px; }
+.game-card .info p { font-size: 13px; color: var(--text-dim); line-height: 1.5; }
+.game-card .arrow { margin-left: auto; color: var(--text-dim); font-size: 20px; }
+
+.lobby footer {
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px;
+  margin-top: 48px;
+}
+
+/* ===== 游戏页通用 ===== */
+
+.game-page {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px 48px;
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.topbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-link {
+  color: var(--text-dim);
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-soft);
+}
+
+.back-link:hover { color: var(--text); border-color: var(--accent); }
+
+.topbar h1 { font-size: 22px; flex: 1; }
+
+.status-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.chip {
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px 16px;
+  font-size: 14px;
+  color: var(--text-dim);
+  min-width: 86px;
+  text-align: center;
+}
+
+.chip b { display: block; font-size: 20px; color: var(--text); margin-top: 2px; }
+.chip.best b { color: var(--warn); }
+
+.board-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+
+canvas.board { display: block; border-radius: 8px; }
+
+.btn {
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 9px 18px;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover { border-color: var(--accent); background: var(--card-hover); }
+.btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn.primary:hover { filter: brightness(1.1); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+.hint {
+  color: var(--text-dim);
+  font-size: 13px;
+  text-align: center;
+  line-height: 1.9;
+}
+
+.hint kbd {
+  font-family: var(--mono);
+  font-size: 12px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-bottom-width: 2px;
+  border-radius: 5px;
+  padding: 1px 7px;
+  color: var(--text);
+}
+
+.overlay-mask {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 14, 22, 0.82);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 8px;
+  z-index: 5;
+}
+
+.overlay-mask h2 { font-size: 26px; }
+.overlay-mask p { color: var(--text-dim); font-size: 14px; }
+
+.stage { position: relative; }
+
+/* ===== 2048 ===== */
+
+.grid2048 {
+  position: relative;
+  width: min(88vw, 440px);
+  height: min(88vw, 440px);
+  background: #232f47;
+  border-radius: 10px;
+  padding: 2.5%;
+}
+
+.grid2048 .cell {
+  position: absolute;
+  width: 22.5%;
+  height: 22.5%;
+  background: #1b2740;
+  border-radius: 8px;
+}
+
+.grid2048 .tile {
+  position: absolute;
+  width: 22.5%;
+  height: 22.5%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: clamp(18px, 6vw, 34px);
+  transition: left 0.12s ease, top 0.12s ease;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0); }
+  60% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+@keyframes merged-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+  100% { transform: scale(1); }
+}
+
+.tile.new { animation: pop-in 0.18s ease; }
+.tile.merged { animation: merged-pop 0.18s ease; }
+
+/* ===== 推箱子 ===== */
+
+.soko-board {
+  display: grid;
+  gap: 3px;
+  background: var(--bg-soft);
+  padding: 12px;
+  border-radius: 10px;
+}
+
+.soko-cell {
+  aspect-ratio: 1;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(16px, 3.4vw, 26px);
+}
+
+.soko-floor { background: #1d2942; }
+.soko-wall { background: #42537a; box-shadow: inset 0 -3px 0 rgba(0,0,0,0.25); }
+.soko-goal { background: #234232; box-shadow: inset 0 0 0 2px #2e5c47; }
+.soko-box { background: #8a6a3d; box-shadow: inset 0 -4px 0 rgba(0,0,0,0.28); }
+.soko-box.soko-box-done { background: var(--good); box-shadow: inset 0 -4px 0 rgba(0,0,0,0.2); }
+
+.level-row { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; justify-content: center; }
+
+/* ===== 老板键按钮 ===== */
+
+.boss-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 900;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  background: rgba(26, 35, 52, 0.9);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 8px 16px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  user-select: none;
+}
+
+.boss-btn:hover { color: var(--text); border-color: var(--accent); }
+
+/* ===== 老板键伪装界面（仿 VS Code） ===== */
+
+.boss-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: #d4d4d4;
+  overflow: hidden;
+}
+
+.boss-screen .vs-body { display: flex; flex: 1; min-height: 0; }
+
+.boss-screen .activity-bar {
+  width: 48px;
+  background: #333333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 8px;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.boss-screen .activity-bar .act {
+  width: 48px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 21px;
+  color: #858585;
+}
+
+.boss-screen .activity-bar .act.active {
+  color: #fff;
+  border-left: 2px solid #fff;
+}
+
+.boss-screen .sidebar {
+  width: 240px;
+  background: #252526;
+  flex-shrink: 0;
+  overflow-y: auto;
+  padding: 8px 0;
+}
+
+.boss-screen .sidebar .sec-title {
+  font-size: 11px;
+  color: #bbbbbb;
+  padding: 6px 16px 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.boss-screen .file { padding: 3px 16px 3px 28px; color: #c5c5c5; white-space: nowrap; }
+.boss-screen .file.open { background: #37373d; color: #fff; }
+.boss-screen .folder { padding: 3px 16px; color: #c5c5c5; }
+.boss-screen .folder::before { content: "▾ "; color: #858585; }
+
+.boss-screen .main-col { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+.boss-screen .tabs {
+  display: flex;
+  background: #252526;
+  flex-shrink: 0;
+}
+
+.boss-screen .tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  background: #2d2d2d;
+  color: #ffffff;
+  border-right: 1px solid #1e1e1e;
+  border-top: 1px solid transparent;
+}
+
+.boss-screen .tab.active { background: #1e1e1e; border-top: 1px solid #0078d4; }
+.boss-screen .tab .close { color: #858585; }
+.boss-screen .tab .close:hover { color: #fff; }
+
+.boss-screen .editor {
+  flex: 1;
+  display: flex;
+  overflow: auto;
+  background: #1e1e1e;
+  min-height: 0;
+}
+
+.boss-screen .gutter {
+  padding: 12px 14px 40px 20px;
+  text-align: right;
+  color: #858585;
+  line-height: 1.55;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.boss-screen .code {
+  padding: 12px 20px 40px 24px;
+  line-height: 1.55;
+  white-space: pre;
+  tab-size: 4;
+}
+
+.boss-screen .code .kw { color: #569cd6; }
+.boss-screen .code .str { color: #ce9178; }
+.boss-screen .code .fn { color: #dcdcaa; }
+.boss-screen .code .cm { color: #6a9955; }
+.boss-screen .code .num { color: #b5cea8; }
+.boss-screen .code .cls { color: #4ec9b0; }
+
+.boss-screen .status-bar {
+  height: 26px;
+  background: #0078d4;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  padding: 0 12px;
+  gap: 18px;
+  flex-shrink: 0;
+  justify-content: space-between;
+}
+
+.boss-screen .status-bar .right { display: flex; gap: 18px; }
+
+@media (max-width: 640px) {
+  .boss-screen .sidebar { display: none; }
+  .lobby h1 { font-size: 32px; }
+}
