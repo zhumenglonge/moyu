@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中国去哪玩 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🗺️</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page cm-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🗺️ 中国：今天去哪玩</h1>
+    </div>
+
+    <div class="cm-toolbar">
+      <button class="btn primary" id="cm-random" type="button">🎲 随机选个目的地</button>
+      <nav class="cm-crumb" id="cm-crumb" aria-label="当前位置"></nav>
+      <button class="btn" id="cm-up" type="button" disabled>↩ 返回上级</button>
+    </div>
+
+    <div class="board-wrap cm-map-wrap">
+      <svg id="cm-svg" preserveAspectRatio="xMidYMid meet"></svg>
+      <div class="cm-tip" id="cm-tip"></div>
+      <div class="cm-zoom">
+        <button id="cm-zoom-in" type="button" title="放大">＋</button>
+        <button id="cm-zoom-out" type="button" title="缩小">－</button>
+        <button id="cm-reset" type="button" title="复位">↺</button>
+      </div>
+      <div class="cm-loading show" id="cm-loading">正在加载中国地图…</div>
+      <div class="cm-result" id="cm-result" hidden>
+        <div class="cm-result-icon">📍</div>
+        <div class="cm-result-title">今日目的地已抽出</div>
+        <div class="cm-result-place" id="cm-result-place">—</div>
+        <div class="cm-result-msg" id="cm-result-msg">—</div>
+        <div class="cm-result-actions">
+          <button class="btn" id="cm-again" type="button">🎲 不满意，再来一次</button>
+          <button class="btn primary" id="cm-ok" type="button">✅ 就这儿了</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="cm-towns" id="cm-towns" hidden></div>
+
+    <p class="hint">
+      点击区域下钻：全国 → 省 → 地级市 → 区县，区县往下能看到下辖乡镇/街道<br>
+      滚轮缩放 · 按住拖拽 · 边界数据来自高德开放平台 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./chinamap.js"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>扫雷 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>💣</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>💣 扫雷</h1>
+      <button class="btn" id="new-game" type="button">🙂 新开一局</button>
+    </div>
+
+    <div class="status-row">
+      <div class="chip">剩余雷数<b id="mines-left">10</b></div>
+      <div class="chip">用时<b id="time">0</b></div>
+      <div class="chip best">最快纪录<b id="best">--</b></div>
+    </div>
+
+    <div class="mode-row" id="modes">
+      <button class="btn mode-btn active" data-level="easy" type="button">初级 9×9</button>
+      <button class="btn mode-btn" data-level="normal" type="button">中级 16×16</button>
+      <button class="btn mode-btn" data-level="hard" type="button">高级 30×16</button>
+    </div>
+
+    <div class="ms-board" id="board"></div>
+
+    <div class="ms-result" id="result" hidden>
+      <div class="ms-face" id="face">🎉</div>
+      <div class="ms-msg" id="msg"></div>
+    </div>
+
+    <p class="hint">
+      左键翻开 · 右键插旗（也可 <kbd>长按</kbd> 或 <kbd>Insert</kbd>）· 双击已翻开数字快速翻开周围 · 首次点击必定安全 · <kbd>R</kbd> 重开 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./minesweeper.js"></script>
+</body>
+</html>

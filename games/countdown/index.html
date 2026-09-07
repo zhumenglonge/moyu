@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>摸鱼倒计时 · 摸鱼大厅</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>🕰️</text></svg>">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <main class="game-page">
+    <div class="topbar">
+      <a class="back-link" href="../../index.html">← 大厅</a>
+      <h1>🕰️ 摸鱼倒计时</h1>
+    </div>
+
+    <div class="cd-card">
+      <div class="cd-date" id="date"></div>
+      <div class="cd-label" id="label">距离下班</div>
+      <div class="cd-timer" id="timer">--:--:--</div>
+      <div class="cd-sub" id="sub"></div>
+      <div class="cd-progress" id="progress">
+        <div class="cd-progress-bar" id="progress-bar"></div>
+      </div>
+      <div class="cd-progress-text" id="progress-text"></div>
+    </div>
+
+    <div class="cd-settings">
+      <label class="cd-field">
+        <span>上班时间</span>
+        <input type="time" id="work-start" value="09:00">
+      </label>
+      <label class="cd-field">
+        <span>下班时间</span>
+        <input type="time" id="work-end" value="18:00">
+      </label>
+      <button class="btn" id="quick-off" type="button">🚀 提前下班</button>
+      <button class="btn" id="reset-time" type="button">↩️ 恢复默认</button>
+    </div>
+
+    <div class="cd-quote" id="quote"></div>
+
+    <p class="hint">
+      设置会自动保存到浏览器 · 整点报时提壶提醒 · <kbd>ESC</kbd> 老板键
+    </p>
+  </main>
+
+  <script src="../../js/common.js"></script>
+  <script src="./countdown.js"></script>
+</body>
+</html>

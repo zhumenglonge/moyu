@@ -7,7 +7,7 @@
     relax: { name: "助眠 4-7-8",   phases: [4, 7, 8] }
   };
 
-  var PHASE_TEXT = ["吸气", "屏住", "呼气", "屏住"];
+  var PHASE_TEXT = ["吸气", "停顿", "呼气", "停顿"];
 
   var circle = document.getElementById("circle");
   var phaseEl = document.getElementById("phase");
@@ -38,10 +38,10 @@
     }
 
     var seconds = phases[pi];
-    phaseEl.textContent = PHASE_TEXT[pi] || "屏住";
+    phaseEl.textContent = PHASE_TEXT[pi] || "停顿";
     countEl.textContent = seconds;
 
-    /* 吸气/呼气时圆圈同步伸缩，屏住时保持不动 */
+    /* 吸气/呼气时圆圈同步伸缩，停顿时保持不动 */
     if (pi === 0) {
       circle.classList.remove("exhale");
       circle.classList.add("inhale");
