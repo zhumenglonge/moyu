@@ -19,9 +19,9 @@
 
 ## 4. 验收
 
-- [x] 4.1 本地 `python3 -m http.server 8000` 起服务（端口占用则先换端口），按 specs/guoqing-guide/spec.md 的 5 个 Requirement 共 12 个 Scenario 逐条走查（含 ESC 老板键伪装/恢复、源码内无第三方域名请求）；验证方式：全部 Scenario 通过
-- [x] 4.2 手机视口（DevTools 模拟 + 真机可选）检查四卡竖屏可读性与复制按钮可点性；验证方式：375px 宽度无横向滚动、按钮不小于可点区域
-- [ ] 4.3 提交并推送 main，等待 Actions 部署后线上抽验攻略页与倒计时；验证方式：`https://zhumenglonge.github.io/moyu/games/guoqing/` 可访问（推送前先与用户确认）
+- [x] 4.1 本地 `python3 -m http.server 8000` 起服务（端口占用则先换端口），按 specs/guoqing-guide/spec.md 的 5 个 Requirement 共 13 个 Scenario 逐条走查（含 ESC 老板键伪装/恢复、源码内无第三方域名请求、遐想档徽章仅 E~H 四卡出现）；验证方式：全部 Scenario 通过
+- [x] 4.2 手机视口（DevTools 模拟 + 真机可选）检查八卡竖屏可读性与复制按钮可点性；验证方式：375px 宽度无横向滚动、按钮不小于可点区域
+- [x] 4.3 提交并推送 main，等待 Actions 部署后线上抽验攻略页与倒计时；验证方式：`https://zhumenglonge.github.io/moyu/games/guoqing/` 可访问（推送前先与用户确认）
 
 ## 5. 扩展：桂林/云南方向（用户追加；当时口径"范围放宽"，已被任务组 7 的"核心档/遐想档分层"取代）
 
