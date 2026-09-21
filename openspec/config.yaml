@@ -1,0 +1,52 @@
+schema: spec-driven
+
+context: |
+  Language: zh
+  All artifacts must be written in zh.
+  Keep OpenSpec structural headings and SHALL/MUST keywords in English.
+
+  # 项目概况
+  摸鱼大厅：上班摸鱼专用的纯静态网页游戏集合站（https://zhumenglonge.github.io/moyu/）。
+  核心特性：老板键（ESC）伪装 VS Code 界面、游戏进度与最高分存 localStorage。
+
+  # 技术栈约束（硬性）
+  - 纯 HTML/CSS/JavaScript，零依赖、零构建：禁止引入 npm 包、CDN 脚本、框架（React/Vue 等）、TypeScript、打包工具。
+  - 无后端：所有逻辑在浏览器端完成，数据只存 localStorage（统一 `moyu.*` 前缀做命名空间隔离，如 `moyu.breathe.rounds`）。
+  - 全站只用相对路径，保证在任意子路径下（GitHub Pages /moyu/ 等）都能正常工作。
+  - 图形类游戏用 Canvas 2D，不引入 WebGL 库。
+
+  # 架构与目录规范
+  - 大厅入口：根目录 index.html（游戏卡片列表）；公共资源：css/style.css（全站样式，含老板键界面）、js/common.js（老板键 + localStorage 工具），由所有游戏共享。
+  - 每个游戏一个自包含目录 games/<name>/，固定为 index.html + <name>.js 文件对，游戏 JS 不拆分多文件。
+  - 新增游戏的扩展点（必须同步修改三处）：① index.html 加卡片链接；② style.css 末尾追加新页面样式（只追加，不修改已有规则）；③ README.md 同步功能表格与目录树。
+
+  # 部署约束
+  - GitHub Pages + GitHub Actions（.github/workflows/deploy.yml，configure-pages@v5 + deploy-pages@v4），推送到 main 分支即自动发布，无手动部署步骤。
+  - 本地预览：python3 -m http.server 8000，改动需在本地 HTTP 服务下验证后再提交。
+  - 仓库为公开 repo，main 为保护分支，禁止 force push。
+
+  # 风格约定
+  - 界面文案为中文（部分游戏含中英双语），轻松幽默的"摸鱼"语气。
+  - 每个游戏须支持老板键暂停/恢复（复用 js/common.js，不重复实现）。
+
+# Per-artifact rules (optional)
+# Add custom rules for specific artifacts.
+# Example:
+#   rules:
+#     proposal:
+#       - Keep proposals under 500 words
+#       - Always include a "Non-goals" section
+#     tasks:
+#       - Break tasks into chunks of max 2 hours
+
+# Per-operation guidance (optional)
+# Add advisory guidance for how apply and archive work should be conducted.
+# This is separate from artifact rules above.
+# Example:
+#   operations:
+#     apply:
+#       guidance:
+#         - Keep test summaries concise
+#     archive:
+#       guidance:
+#         - Summarize the archive outcome before finishing
