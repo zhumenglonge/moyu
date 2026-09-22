@@ -1360,6 +1360,7 @@ canvas.board { display: block; border-radius: 8px; }
 .gq-mod-accent2 { border-top-color: var(--accent-2); }
 .gq-mod-brown  { border-top-color: #8a6a3d; } /* 同 .soko-box 既有值，苗寨木楼 */
 .gq-mod-fog    { border-top-color: #fff; }    /* 同 .btn.primary 文字色，雾都 */
+.gq-mod-river  { border-top-color: #5499c7; } /* 武汉江城·两江四岸 */
 
 .gq-head { display: flex; align-items: flex-start; gap: 10px; }
 
